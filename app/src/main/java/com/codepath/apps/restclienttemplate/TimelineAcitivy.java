@@ -95,6 +95,7 @@ public class TimelineAcitivy extends AppCompatActivity {
            Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
            tweets.add(0, tweet);
            adapter.notifyItemInserted(0);
+           rvTweet.smoothScrollToPosition(0);
         }
     }
 
