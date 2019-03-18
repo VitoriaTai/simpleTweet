@@ -43,27 +43,29 @@ public class ComposeAcitivity extends AppCompatActivity {
         btnTweet = findViewById(R.id.btnTweet);
         counter = findViewById(R.id.counter);
 
+
+
         etCompose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tweetContent = etCompose.getText().toString();
-                EditText etCompose = (EditText) findViewById(R.id.etCompose);
                 etCompose.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
                         // Fires right as the text is being changed (even supplies the range of text)
+                        counter.setText(String.valueOf(s.length()));
+
                     }
 
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count,
                                                   int after) {
-                        // Fires right before text is changing
+                        counter.setText(String.valueOf(s.length()));
                     }
 
                     @Override
                     public void afterTextChanged(Editable s) {
                         // Fires right after the text has changed
-                        counter.setText(s.toString());
+                        counter.setText(String.valueOf(s.length()));
                     }
                 });
 
